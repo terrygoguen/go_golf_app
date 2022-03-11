@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "users#index"
   resources :tee_boxes
   resources :holes
   resources :couses
