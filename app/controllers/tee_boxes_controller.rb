@@ -1,24 +1,19 @@
 class TeeBoxesController < ApplicationController
   before_action :set_tee_box, only: %i[show edit update destroy]
 
-  # GET /tee_boxes
   def index
     @q = TeeBox.ransack(params[:q])
     @tee_boxes = @q.result(distinct: true).includes(:hole).page(params[:page]).per(10)
   end
 
-  # GET /tee_boxes/1
   def show; end
 
-  # GET /tee_boxes/new
   def new
     @tee_box = TeeBox.new
   end
 
-  # GET /tee_boxes/1/edit
   def edit; end
 
-  # POST /tee_boxes
   def create
     @tee_box = TeeBox.new(tee_box_params)
 
@@ -34,7 +29,6 @@ class TeeBoxesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tee_boxes/1
   def update
     if @tee_box.update(tee_box_params)
       redirect_to @tee_box, notice: "Tee box was successfully updated."
@@ -43,7 +37,6 @@ class TeeBoxesController < ApplicationController
     end
   end
 
-  # DELETE /tee_boxes/1
   def destroy
     @tee_box.destroy
     message = "TeeBox was successfully deleted."
@@ -56,12 +49,10 @@ class TeeBoxesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_tee_box
     @tee_box = TeeBox.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def tee_box_params
     params.require(:tee_box).permit(:hole_id, :color, :yardage)
   end

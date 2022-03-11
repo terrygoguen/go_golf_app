@@ -1,25 +1,20 @@
 class HoleLikesController < ApplicationController
   before_action :set_hole_like, only: %i[show edit update destroy]
 
-  # GET /hole_likes
   def index
     @q = HoleLike.ransack(params[:q])
     @hole_likes = @q.result(distinct: true).includes(:user,
                                                      :hole).page(params[:page]).per(10)
   end
 
-  # GET /hole_likes/1
   def show; end
 
-  # GET /hole_likes/new
   def new
     @hole_like = HoleLike.new
   end
 
-  # GET /hole_likes/1/edit
   def edit; end
 
-  # POST /hole_likes
   def create
     @hole_like = HoleLike.new(hole_like_params)
 
@@ -35,7 +30,6 @@ class HoleLikesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /hole_likes/1
   def update
     if @hole_like.update(hole_like_params)
       redirect_to @hole_like, notice: "Hole like was successfully updated."
@@ -44,7 +38,6 @@ class HoleLikesController < ApplicationController
     end
   end
 
-  # DELETE /hole_likes/1
   def destroy
     @hole_like.destroy
     message = "HoleLike was successfully deleted."
@@ -57,12 +50,10 @@ class HoleLikesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_hole_like
     @hole_like = HoleLike.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def hole_like_params
     params.require(:hole_like).permit(:user_id, :hole_id)
   end
