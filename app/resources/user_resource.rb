@@ -10,6 +10,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :hole_likes
+
   has_many   :course_likes
 
   # Indirect associations
