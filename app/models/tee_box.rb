@@ -1,6 +1,8 @@
 class TeeBox < ApplicationRecord
   # Direct associations
 
+  belongs_to :hole
+
   # Indirect associations
 
   # Validations

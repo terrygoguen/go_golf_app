@@ -4,6 +4,8 @@ RSpec.describe Hole, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:tee_boxes) }
+
     it { should have_many(:hole_likes) }
 
     it { should belong_to(:course) }

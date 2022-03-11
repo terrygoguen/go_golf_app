@@ -1,6 +1,9 @@
 class Hole < ApplicationRecord
   # Direct associations
 
+  has_many   :tee_boxes,
+             :dependent => :destroy
+
   has_many   :hole_likes,
              :dependent => :destroy
 
