@@ -1,5 +1,7 @@
 ActiveAdmin.register TeeBox do
 
+ permit_params :hole_id, :color, :yardage
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
