@@ -8,6 +8,8 @@ class TeeBoxResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :hole
+
   # Indirect associations
 
 end
