@@ -12,6 +12,8 @@ class HoleResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :hole_likes
+
   belongs_to :course,
              resource: CouseResource
 

@@ -7,6 +7,8 @@ class HoleLikeResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :hole
+
   belongs_to :user
 
   # Indirect associations
