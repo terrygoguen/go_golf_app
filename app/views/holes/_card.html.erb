@@ -22,7 +22,9 @@
 
       <dt>Polygon map</dt>
       <!-- Display polygon_map start -->
-      <dd><%= hole.polygon_map %></dd>
+      <dd>
+        <%= cl_image_tag @hole.polygon_map, class: "img-fluid" %>
+      </dd>
       <!-- Display polygon_map end -->
 
       <dt>Center of green longitude</dt>

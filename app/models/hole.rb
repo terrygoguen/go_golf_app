@@ -1,4 +1,6 @@
 class Hole < ApplicationRecord
+  mount_base64_uploader :polygon_map, PolygonMapUploader
+
   # Direct associations
 
   has_many   :tee_boxes,

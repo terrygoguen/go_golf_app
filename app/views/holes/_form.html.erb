@@ -94,7 +94,7 @@
 
     <%= f.label :polygon_map %>
     <!-- Input for polygon_map start -->
-    <%= f.text_field :polygon_map, class: polygon_map_class, placeholder: "Enter polygon map" %>
+    <%= f.file_field :polygon_map, class: "form-control" %>
     <!-- Input for polygon_map end -->
     <% if polygon_map_was_invalid %>
       <% hole.errors.full_messages_for(:polygon_map).each do |message| %>
