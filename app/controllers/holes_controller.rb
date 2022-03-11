@@ -3,7 +3,8 @@ class HolesController < ApplicationController
 
   # GET /holes
   def index
-    @holes = Hole.page(params[:page]).per(10)
+    @q = Hole.ransack(params[:q])
+    @holes = @q.result(:distinct => true).includes(:course, :hole_likes, :tee_boxes).page(params[:page]).per(10)
   end
 
   # GET /holes/1

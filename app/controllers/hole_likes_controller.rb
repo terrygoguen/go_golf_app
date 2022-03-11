@@ -3,7 +3,8 @@ class HoleLikesController < ApplicationController
 
   # GET /hole_likes
   def index
-    @hole_likes = HoleLike.page(params[:page]).per(10)
+    @q = HoleLike.ransack(params[:q])
+    @hole_likes = @q.result(:distinct => true).includes(:user, :hole).page(params[:page]).per(10)
   end
 
   # GET /hole_likes/1

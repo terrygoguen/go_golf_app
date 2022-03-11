@@ -3,7 +3,8 @@ class CousesController < ApplicationController
 
   # GET /couses
   def index
-    @couses = Couse.page(params[:page]).per(10)
+    @q = Couse.ransack(params[:q])
+    @couses = @q.result(:distinct => true).includes(:holes, :course_likes).page(params[:page]).per(10)
   end
 
   # GET /couses/1

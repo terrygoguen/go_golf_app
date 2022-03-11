@@ -3,7 +3,8 @@ class CourseLikesController < ApplicationController
 
   # GET /course_likes
   def index
-    @course_likes = CourseLike.page(params[:page]).per(10)
+    @q = CourseLike.ransack(params[:q])
+    @course_likes = @q.result(:distinct => true).includes(:user, :course).page(params[:page]).per(10)
   end
 
   # GET /course_likes/1
