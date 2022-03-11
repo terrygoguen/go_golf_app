@@ -3,7 +3,7 @@ class CourseLikesController < ApplicationController
 
   # GET /course_likes
   def index
-    @course_likes = CourseLike.all
+    @course_likes = CourseLike.page(params[:page]).per(10)
   end
 
   # GET /course_likes/1

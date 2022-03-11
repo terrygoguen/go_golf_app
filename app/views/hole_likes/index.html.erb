@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @hole_likes, partial: "list_item", as: :hole_like %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @hole_likes, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

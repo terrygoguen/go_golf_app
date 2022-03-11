@@ -3,7 +3,7 @@ class CousesController < ApplicationController
 
   # GET /couses
   def index
-    @couses = Couse.all
+    @couses = Couse.page(params[:page]).per(10)
   end
 
   # GET /couses/1

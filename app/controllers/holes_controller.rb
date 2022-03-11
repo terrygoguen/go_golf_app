@@ -3,7 +3,7 @@ class HolesController < ApplicationController
 
   # GET /holes
   def index
-    @holes = Hole.all
+    @holes = Hole.page(params[:page]).per(10)
   end
 
   # GET /holes/1

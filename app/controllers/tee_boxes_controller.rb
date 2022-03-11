@@ -3,7 +3,7 @@ class TeeBoxesController < ApplicationController
 
   # GET /tee_boxes
   def index
-    @tee_boxes = TeeBox.all
+    @tee_boxes = TeeBox.page(params[:page]).per(10)
   end
 
   # GET /tee_boxes/1
