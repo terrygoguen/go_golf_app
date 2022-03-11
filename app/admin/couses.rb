@@ -1,5 +1,7 @@
 ActiveAdmin.register Couse do
 
+ permit_params :name, :address, :phone_number, :rating, :handicap, :longitude, :latitude
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
