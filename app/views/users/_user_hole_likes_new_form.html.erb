@@ -13,7 +13,7 @@
     <%= f.label :hole_id %>
 
     <!-- Input for hole_id start -->
-    <%= f.text_field :hole_id, class: "form-control" %>
+    <%= f.collection_select :hole_id, Hole.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for hole_id end -->
   </div>
   <!-- Label and input for hole_id end -->
