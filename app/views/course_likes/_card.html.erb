@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Course Like #<%= course_like.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= course_like.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Course</dt>
+      <!-- Display course_id start -->
+      <dd><%= course_like.course_id %></dd>
+      <!-- Display course_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back course_like, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link course_like start -->
+      <div class="col">
+        <%= link_to edit_course_like_url(course_like), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link course_like end -->
+
+      <!-- Delete link course_like start -->
+      <div class="col">
+        <%= link_to course_like, method: :delete, data: { confirm: "Do you really want to delete this course_like?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link course_like end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(course_like.updated_at) %> ago
+  </div>
+</div>
