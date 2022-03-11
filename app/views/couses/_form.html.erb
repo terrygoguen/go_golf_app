@@ -1,0 +1,187 @@
+<% was_validated = couse.errors.any? %>
+
+<%= form_with(model: couse, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = couse.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% couse.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for address start -->
+  <div class="form-group">
+    <% address_class = "form-control" %>
+    <% address_was_invalid = couse.errors.include?(:address) %>
+
+    <% if was_validated %>
+      <% if address_was_invalid %>
+        <% address_class << " is-invalid" %>
+      <% else %>
+        <% address_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :address %>
+    <!-- Input for address start -->
+    <%= f.text_field :address, class: address_class, placeholder: "Enter address" %>
+    <!-- Input for address end -->
+    <% if address_was_invalid %>
+      <% couse.errors.full_messages_for(:address).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for address end -->
+  <!-- Label and input for phone_number start -->
+  <div class="form-group">
+    <% phone_number_class = "form-control" %>
+    <% phone_number_was_invalid = couse.errors.include?(:phone_number) %>
+
+    <% if was_validated %>
+      <% if phone_number_was_invalid %>
+        <% phone_number_class << " is-invalid" %>
+      <% else %>
+        <% phone_number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :phone_number %>
+    <!-- Input for phone_number start -->
+    <%= f.number_field :phone_number, class: phone_number_class, placeholder: "Enter phone number" %>
+    <!-- Input for phone_number end -->
+    <% if phone_number_was_invalid %>
+      <% couse.errors.full_messages_for(:phone_number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for phone_number end -->
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <% rating_class = "form-control" %>
+    <% rating_was_invalid = couse.errors.include?(:rating) %>
+
+    <% if was_validated %>
+      <% if rating_was_invalid %>
+        <% rating_class << " is-invalid" %>
+      <% else %>
+        <% rating_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rating %>
+    <!-- Input for rating start -->
+    <%= f.number_field :rating, class: rating_class, placeholder: "Enter rating" %>
+    <!-- Input for rating end -->
+    <% if rating_was_invalid %>
+      <% couse.errors.full_messages_for(:rating).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rating end -->
+  <!-- Label and input for handicap start -->
+  <div class="form-group">
+    <% handicap_class = "form-control" %>
+    <% handicap_was_invalid = couse.errors.include?(:handicap) %>
+
+    <% if was_validated %>
+      <% if handicap_was_invalid %>
+        <% handicap_class << " is-invalid" %>
+      <% else %>
+        <% handicap_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :handicap %>
+    <!-- Input for handicap start -->
+    <%= f.number_field :handicap, class: handicap_class, placeholder: "Enter handicap" %>
+    <!-- Input for handicap end -->
+    <% if handicap_was_invalid %>
+      <% couse.errors.full_messages_for(:handicap).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for handicap end -->
+  <!-- Label and input for longitude start -->
+  <div class="form-group">
+    <% longitude_class = "form-control" %>
+    <% longitude_was_invalid = couse.errors.include?(:longitude) %>
+
+    <% if was_validated %>
+      <% if longitude_was_invalid %>
+        <% longitude_class << " is-invalid" %>
+      <% else %>
+        <% longitude_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :longitude %>
+    <!-- Input for longitude start -->
+    <%= f.number_field :longitude, class: longitude_class, placeholder: "Enter longitude" %>
+    <!-- Input for longitude end -->
+    <% if longitude_was_invalid %>
+      <% couse.errors.full_messages_for(:longitude).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for longitude end -->
+  <!-- Label and input for latitude start -->
+  <div class="form-group">
+    <% latitude_class = "form-control" %>
+    <% latitude_was_invalid = couse.errors.include?(:latitude) %>
+
+    <% if was_validated %>
+      <% if latitude_was_invalid %>
+        <% latitude_class << " is-invalid" %>
+      <% else %>
+        <% latitude_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :latitude %>
+    <!-- Input for latitude start -->
+    <%= f.number_field :latitude, class: latitude_class, placeholder: "Enter latitude" %>
+    <!-- Input for latitude end -->
+    <% if latitude_was_invalid %>
+      <% couse.errors.full_messages_for(:latitude).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for latitude end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
