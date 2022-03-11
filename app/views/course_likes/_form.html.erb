@@ -1,7 +1,6 @@
 <% was_validated = course_like.errors.any? %>
 
 <%= form_with(model: course_like, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = course_like.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% course_like.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for course_id start -->
   <div class="form-group">
     <% course_class = "form-control" %>
     <% course_was_invalid = course_like.errors.include?(:course) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :course_id %>
-    <!-- Input for course_id start -->
     <%= f.collection_select :course_id, Couse.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for course_id end -->
     <% if course_was_invalid %>
       <% course_like.errors.full_messages_for(:course).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for course_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

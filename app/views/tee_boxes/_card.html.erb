@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Hole</dt>
-      <!-- Display hole_id start -->
       <dd>
         <% if @tee_box.hole.present? %>
           <%= link_to tee_box.hole, tee_box.hole %>
         <% end %>
       </dd>
-      <!-- Display hole_id end -->
 
       <dt>Color</dt>
-      <!-- Display color start -->
       <dd><%= tee_box.color %></dd>
-      <!-- Display color end -->
 
       <dt>Yardage</dt>
-      <!-- Display yardage start -->
       <dd><%= tee_box.yardage %></dd>
-      <!-- Display yardage end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back tee_box, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link tee_box start -->
       <div class="col">
         <%= link_to edit_tee_box_url(tee_box), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link tee_box end -->
 
-      <!-- Delete link tee_box start -->
       <div class="col">
         <%= link_to tee_box, method: :delete, data: { confirm: "Do you really want to delete this tee_box?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link tee_box end -->
     </div>
   </div>
 

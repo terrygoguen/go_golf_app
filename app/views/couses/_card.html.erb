@@ -6,39 +6,25 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= couse.name %></dd>
-      <!-- Display name end -->
 
       <dt>Address</dt>
-      <!-- Display address start -->
       <dd><%= couse.address %></dd>
-      <!-- Display address end -->
 
       <dt>Phone number</dt>
-      <!-- Display phone_number start -->
       <dd><%= couse.phone_number %></dd>
-      <!-- Display phone_number end -->
 
       <dt>Rating</dt>
-      <!-- Display rating start -->
       <dd><%= couse.rating %></dd>
-      <!-- Display rating end -->
 
       <dt>Handicap</dt>
-      <!-- Display handicap start -->
       <dd><%= couse.handicap %></dd>
-      <!-- Display handicap end -->
 
       <dt>Longitude</dt>
-      <!-- Display longitude start -->
       <dd><%= couse.longitude %></dd>
-      <!-- Display longitude end -->
 
       <dt>Latitude</dt>
-      <!-- Display latitude start -->
       <dd><%= couse.latitude %></dd>
-      <!-- Display latitude end -->
 
     </dl>
 
@@ -47,21 +33,17 @@
         <%= link_to_show_or_back couse, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link couse start -->
       <div class="col">
         <%= link_to edit_couse_url(couse), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link couse end -->
 
-      <!-- Delete link couse start -->
       <div class="col">
         <%= link_to couse, method: :delete, data: { confirm: "Do you really want to delete this couse?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link couse end -->
     </div>
   </div>
 

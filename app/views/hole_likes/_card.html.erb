@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @hole_like.user.present? %>
           <%= link_to hole_like.user, hole_like.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Hole</dt>
-      <!-- Display hole_id start -->
       <dd>
         <% if @hole_like.hole.present? %>
           <%= link_to hole_like.hole, hole_like.hole %>
         <% end %>
       </dd>
-      <!-- Display hole_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back hole_like, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link hole_like start -->
       <div class="col">
         <%= link_to edit_hole_like_url(hole_like), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link hole_like end -->
 
-      <!-- Delete link hole_like start -->
       <div class="col">
         <%= link_to hole_like, method: :delete, data: { confirm: "Do you really want to delete this hole_like?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link hole_like end -->
     </div>
   </div>
 

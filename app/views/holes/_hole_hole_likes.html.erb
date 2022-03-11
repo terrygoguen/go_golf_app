@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @hole.hole_likes.each do |hole_like| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to hole_like, hole_like %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to hole_like, method: :delete, data: { confirm: "Do you really want to delete this hole_like" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="hole_hole_likes_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "holes/hole_hole_likes_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 
