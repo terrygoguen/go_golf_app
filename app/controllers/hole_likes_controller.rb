@@ -24,7 +24,12 @@ class HoleLikesController < ApplicationController
     @hole_like = HoleLike.new(hole_like_params)
 
     if @hole_like.save
-      redirect_to @hole_like, notice: 'Hole like was successfully created.'
+      message = 'HoleLike was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @hole_like, notice: message
+      end
     else
       render :new
     end

@@ -8,6 +8,8 @@ class CousesController < ApplicationController
 
   # GET /couses/1
   def show
+    @course_like = CourseLike.new
+    @hole = Hole.new
   end
 
   # GET /couses/new

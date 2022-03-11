@@ -24,7 +24,12 @@ class CourseLikesController < ApplicationController
     @course_like = CourseLike.new(course_like_params)
 
     if @course_like.save
-      redirect_to @course_like, notice: 'Course like was successfully created.'
+      message = 'CourseLike was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @course_like, notice: message
+      end
     else
       render :new
     end

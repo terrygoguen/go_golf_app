@@ -8,6 +8,8 @@ class HolesController < ApplicationController
 
   # GET /holes/1
   def show
+    @tee_box = TeeBox.new
+    @hole_like = HoleLike.new
   end
 
   # GET /holes/new
@@ -24,7 +26,12 @@ class HolesController < ApplicationController
     @hole = Hole.new(hole_params)
 
     if @hole.save
-      redirect_to @hole, notice: 'Hole was successfully created.'
+      message = 'Hole was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @hole, notice: message
+      end
     else
       render :new
     end

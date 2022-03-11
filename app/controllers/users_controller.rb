@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @hole_like = HoleLike.new
+    @course_like = CourseLike.new
   end
 
   # GET /users/new

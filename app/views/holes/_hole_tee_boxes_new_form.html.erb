@@ -1,0 +1,32 @@
+<!-- Form tee_box start -->
+<%= form_with(model: @tee_box, local: true) do |f| %>
+<!-- Form tee_box end -->
+
+  <!-- Label and input for hole_id start -->
+  <!-- Input for hole_id start -->
+  <%= f.hidden_field :hole_id, value: @hole.id %>
+  <!-- Input for hole_id end -->
+  <!-- Label and input for hole_id end -->
+
+  <!-- Label and input for color start -->
+  <div class="form-group">
+    <%= f.label :color %>
+
+    <!-- Input for color start -->
+    <%= f.text_field :color, class: "form-control" %>
+    <!-- Input for color end -->
+  </div>
+  <!-- Label and input for color end -->
+
+  <!-- Label and input for yardage start -->
+  <div class="form-group">
+    <%= f.label :yardage %>
+
+    <!-- Input for yardage start -->
+    <%= f.text_field :yardage, class: "form-control" %>
+    <!-- Input for yardage end -->
+  </div>
+  <!-- Label and input for yardage end -->
+
+  <%= f.submit "Create tee box", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

@@ -1,0 +1,72 @@
+<!-- Form hole start -->
+<%= form_with(model: @hole, local: true) do |f| %>
+<!-- Form hole end -->
+
+  <!-- Label and input for yardage start -->
+  <div class="form-group">
+    <%= f.label :yardage %>
+
+    <!-- Input for yardage start -->
+    <%= f.text_field :yardage, class: "form-control" %>
+    <!-- Input for yardage end -->
+  </div>
+  <!-- Label and input for yardage end -->
+
+  <!-- Label and input for par start -->
+  <div class="form-group">
+    <%= f.label :par %>
+
+    <!-- Input for par start -->
+    <%= f.text_field :par, class: "form-control" %>
+    <!-- Input for par end -->
+  </div>
+  <!-- Label and input for par end -->
+
+  <!-- Label and input for handicap start -->
+  <div class="form-group">
+    <%= f.label :handicap %>
+
+    <!-- Input for handicap start -->
+    <%= f.text_field :handicap, class: "form-control" %>
+    <!-- Input for handicap end -->
+  </div>
+  <!-- Label and input for handicap end -->
+
+  <!-- Label and input for polygon_map start -->
+  <div class="form-group">
+    <%= f.label :polygon_map %>
+
+    <!-- Input for polygon_map start -->
+    <%= f.text_field :polygon_map, class: "form-control" %>
+    <!-- Input for polygon_map end -->
+  </div>
+  <!-- Label and input for polygon_map end -->
+
+  <!-- Label and input for center_of_green_longitude start -->
+  <div class="form-group">
+    <%= f.label :center_of_green_longitude %>
+
+    <!-- Input for center_of_green_longitude start -->
+    <%= f.text_field :center_of_green_longitude, class: "form-control" %>
+    <!-- Input for center_of_green_longitude end -->
+  </div>
+  <!-- Label and input for center_of_green_longitude end -->
+
+  <!-- Label and input for center_of_green_latitude start -->
+  <div class="form-group">
+    <%= f.label :center_of_green_latitude %>
+
+    <!-- Input for center_of_green_latitude start -->
+    <%= f.text_field :center_of_green_latitude, class: "form-control" %>
+    <!-- Input for center_of_green_latitude end -->
+  </div>
+  <!-- Label and input for center_of_green_latitude end -->
+
+  <!-- Label and input for course_id start -->
+  <!-- Input for course_id start -->
+  <%= f.hidden_field :course_id, value: @couse.id %>
+  <!-- Input for course_id end -->
+  <!-- Label and input for course_id end -->
+
+  <%= f.submit "Create hole", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

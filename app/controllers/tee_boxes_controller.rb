@@ -24,7 +24,12 @@ class TeeBoxesController < ApplicationController
     @tee_box = TeeBox.new(tee_box_params)
 
     if @tee_box.save
-      redirect_to @tee_box, notice: 'Tee box was successfully created.'
+      message = 'TeeBox was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @tee_box, notice: message
+      end
     else
       render :new
     end
