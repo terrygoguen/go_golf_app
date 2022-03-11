@@ -1,5 +1,7 @@
 ActiveAdmin.register Hole do
 
+ permit_params :yardage, :par, :handicap, :polygon_map, :center_of_green_longitude, :center_of_green_latitude, :course_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
