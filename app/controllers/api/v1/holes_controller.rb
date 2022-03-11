@@ -13,7 +13,7 @@ class Api::V1::HolesController < Api::V1::GraphitiController
     hole = HoleResource.build(params)
 
     if hole.save
-      render jsonapi: hole, status: 201
+      render jsonapi: hole, status: :created
     else
       render jsonapi_errors: hole
     end
@@ -33,7 +33,7 @@ class Api::V1::HolesController < Api::V1::GraphitiController
     hole = HoleResource.find(params)
 
     if hole.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: hole
     end

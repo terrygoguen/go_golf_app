@@ -2,10 +2,10 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :hole_likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :course_likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class User < ApplicationRecord
   def to_s
     email
   end
-
 end

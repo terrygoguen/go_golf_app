@@ -4,13 +4,13 @@ class Hole < ApplicationRecord
   # Direct associations
 
   has_many   :tee_boxes,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :hole_likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :course,
-             :class_name => "Couse"
+             class_name: "Couse"
 
   # Indirect associations
 
@@ -21,5 +21,4 @@ class Hole < ApplicationRecord
   def to_s
     yardage
   end
-
 end

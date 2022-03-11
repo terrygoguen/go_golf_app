@@ -13,7 +13,7 @@ class Api::V1::TeeBoxesController < Api::V1::GraphitiController
     tee_box = TeeBoxResource.build(params)
 
     if tee_box.save
-      render jsonapi: tee_box, status: 201
+      render jsonapi: tee_box, status: :created
     else
       render jsonapi_errors: tee_box
     end
@@ -33,7 +33,7 @@ class Api::V1::TeeBoxesController < Api::V1::GraphitiController
     tee_box = TeeBoxResource.find(params)
 
     if tee_box.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: tee_box
     end

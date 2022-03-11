@@ -13,7 +13,7 @@ class Api::V1::CourseLikesController < Api::V1::GraphitiController
     course_like = CourseLikeResource.build(params)
 
     if course_like.save
-      render jsonapi: course_like, status: 201
+      render jsonapi: course_like, status: :created
     else
       render jsonapi_errors: course_like
     end
@@ -33,7 +33,7 @@ class Api::V1::CourseLikesController < Api::V1::GraphitiController
     course_like = CourseLikeResource.find(params)
 
     if course_like.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: course_like
     end

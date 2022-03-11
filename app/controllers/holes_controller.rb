@@ -1,10 +1,11 @@
 class HolesController < ApplicationController
-  before_action :set_hole, only: [:show, :edit, :update, :destroy]
+  before_action :set_hole, only: %i[show edit update destroy]
 
   # GET /holes
   def index
     @q = Hole.ransack(params[:q])
-    @holes = @q.result(:distinct => true).includes(:course, :hole_likes, :tee_boxes).page(params[:page]).per(10)
+    @holes = @q.result(distinct: true).includes(:course, :hole_likes,
+                                                :tee_boxes).page(params[:page]).per(10)
   end
 
   # GET /holes/1
@@ -19,17 +20,16 @@ class HolesController < ApplicationController
   end
 
   # GET /holes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /holes
   def create
     @hole = Hole.new(hole_params)
 
     if @hole.save
-      message = 'Hole was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Hole was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @hole, notice: message
       end
@@ -41,7 +41,7 @@ class HolesController < ApplicationController
   # PATCH/PUT /holes/1
   def update
     if @hole.update(hole_params)
-      redirect_to @hole, notice: 'Hole was successfully updated.'
+      redirect_to @hole, notice: "Hole was successfully updated."
     else
       render :edit
     end
@@ -51,22 +51,23 @@ class HolesController < ApplicationController
   def destroy
     @hole.destroy
     message = "Hole was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to holes_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hole
-      @hole = Hole.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def hole_params
-      params.require(:hole).permit(:yardage, :par, :handicap, :polygon_map, :center_of_green_longitude, :center_of_green_latitude, :course_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hole
+    @hole = Hole.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def hole_params
+    params.require(:hole).permit(:yardage, :par, :handicap, :polygon_map,
+                                 :center_of_green_longitude, :center_of_green_latitude, :course_id)
+  end
 end

@@ -2,7 +2,7 @@ class CourseLike < ApplicationRecord
   # Direct associations
 
   belongs_to :course,
-             :class_name => "Couse"
+             class_name: "Couse"
 
   belongs_to :user
 
@@ -15,5 +15,4 @@ class CourseLike < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

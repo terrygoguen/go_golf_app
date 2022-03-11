@@ -19,5 +19,4 @@ class CouseResource < ApplicationResource
              foreign_key: :course_id
 
   # Indirect associations
-
 end

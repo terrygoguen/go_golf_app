@@ -1,15 +1,15 @@
 class HoleLikesController < ApplicationController
-  before_action :set_hole_like, only: [:show, :edit, :update, :destroy]
+  before_action :set_hole_like, only: %i[show edit update destroy]
 
   # GET /hole_likes
   def index
     @q = HoleLike.ransack(params[:q])
-    @hole_likes = @q.result(:distinct => true).includes(:user, :hole).page(params[:page]).per(10)
+    @hole_likes = @q.result(distinct: true).includes(:user,
+                                                     :hole).page(params[:page]).per(10)
   end
 
   # GET /hole_likes/1
-  def show
-  end
+  def show; end
 
   # GET /hole_likes/new
   def new
@@ -17,17 +17,16 @@ class HoleLikesController < ApplicationController
   end
 
   # GET /hole_likes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /hole_likes
   def create
     @hole_like = HoleLike.new(hole_like_params)
 
     if @hole_like.save
-      message = 'HoleLike was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "HoleLike was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @hole_like, notice: message
       end
@@ -39,7 +38,7 @@ class HoleLikesController < ApplicationController
   # PATCH/PUT /hole_likes/1
   def update
     if @hole_like.update(hole_like_params)
-      redirect_to @hole_like, notice: 'Hole like was successfully updated.'
+      redirect_to @hole_like, notice: "Hole like was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,22 @@ class HoleLikesController < ApplicationController
   def destroy
     @hole_like.destroy
     message = "HoleLike was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to hole_likes_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hole_like
-      @hole_like = HoleLike.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def hole_like_params
-      params.require(:hole_like).permit(:user_id, :hole_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hole_like
+    @hole_like = HoleLike.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def hole_like_params
+    params.require(:hole_like).permit(:user_id, :hole_id)
+  end
 end

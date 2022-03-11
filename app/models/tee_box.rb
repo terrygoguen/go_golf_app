@@ -12,5 +12,4 @@ class TeeBox < ApplicationRecord
   def to_s
     created_at
   end
-
 end

@@ -20,5 +20,4 @@ class HoleResource < ApplicationResource
              resource: CouseResource
 
   # Indirect associations
-
 end

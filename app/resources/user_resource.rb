@@ -15,5 +15,4 @@ class UserResource < ApplicationResource
   has_many   :course_likes
 
   # Indirect associations
-
 end

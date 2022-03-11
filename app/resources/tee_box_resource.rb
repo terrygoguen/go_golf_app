@@ -11,5 +11,4 @@ class TeeBoxResource < ApplicationResource
   belongs_to :hole
 
   # Indirect associations
-
 end

@@ -13,7 +13,7 @@ class Api::V1::CousesController < Api::V1::GraphitiController
     couse = CouseResource.build(params)
 
     if couse.save
-      render jsonapi: couse, status: 201
+      render jsonapi: couse, status: :created
     else
       render jsonapi_errors: couse
     end
@@ -33,7 +33,7 @@ class Api::V1::CousesController < Api::V1::GraphitiController
     couse = CouseResource.find(params)
 
     if couse.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: couse
     end
