@@ -1,0 +1,57 @@
+<% was_validated = hole_like.errors.any? %>
+
+<%= form_with(model: hole_like, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = hole_like.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% hole_like.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for hole_id start -->
+  <div class="form-group">
+    <% hole_class = "form-control" %>
+    <% hole_was_invalid = hole_like.errors.include?(:hole) %>
+
+    <% if was_validated %>
+      <% if hole_was_invalid %>
+        <% hole_class << " is-invalid" %>
+      <% else %>
+        <% hole_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hole_id %>
+    <!-- Input for hole_id start -->
+    <%= f.number_field :hole_id, class: hole_class, placeholder: "Enter hole" %>
+    <!-- Input for hole_id end -->
+    <% if hole_was_invalid %>
+      <% hole_like.errors.full_messages_for(:hole).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for hole_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
