@@ -1,0 +1,83 @@
+<% was_validated = tee_box.errors.any? %>
+
+<%= form_with(model: tee_box, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for hole_id start -->
+  <div class="form-group">
+    <% hole_class = "form-control" %>
+    <% hole_was_invalid = tee_box.errors.include?(:hole) %>
+
+    <% if was_validated %>
+      <% if hole_was_invalid %>
+        <% hole_class << " is-invalid" %>
+      <% else %>
+        <% hole_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hole_id %>
+    <!-- Input for hole_id start -->
+    <%= f.number_field :hole_id, class: hole_class, placeholder: "Enter hole" %>
+    <!-- Input for hole_id end -->
+    <% if hole_was_invalid %>
+      <% tee_box.errors.full_messages_for(:hole).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for hole_id end -->
+  <!-- Label and input for color start -->
+  <div class="form-group">
+    <% color_class = "form-control" %>
+    <% color_was_invalid = tee_box.errors.include?(:color) %>
+
+    <% if was_validated %>
+      <% if color_was_invalid %>
+        <% color_class << " is-invalid" %>
+      <% else %>
+        <% color_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :color %>
+    <!-- Input for color start -->
+    <%= f.text_field :color, class: color_class, placeholder: "Enter color" %>
+    <!-- Input for color end -->
+    <% if color_was_invalid %>
+      <% tee_box.errors.full_messages_for(:color).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for color end -->
+  <!-- Label and input for yardage start -->
+  <div class="form-group">
+    <% yardage_class = "form-control" %>
+    <% yardage_was_invalid = tee_box.errors.include?(:yardage) %>
+
+    <% if was_validated %>
+      <% if yardage_was_invalid %>
+        <% yardage_class << " is-invalid" %>
+      <% else %>
+        <% yardage_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :yardage %>
+    <!-- Input for yardage start -->
+    <%= f.number_field :yardage, class: yardage_class, placeholder: "Enter yardage" %>
+    <!-- Input for yardage end -->
+    <% if yardage_was_invalid %>
+      <% tee_box.errors.full_messages_for(:yardage).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for yardage end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Tee Box #<%= tee_box.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Hole</dt>
+      <!-- Display hole_id start -->
+      <dd><%= tee_box.hole_id %></dd>
+      <!-- Display hole_id end -->
+
+      <dt>Color</dt>
+      <!-- Display color start -->
+      <dd><%= tee_box.color %></dd>
+      <!-- Display color end -->
+
+      <dt>Yardage</dt>
+      <!-- Display yardage start -->
+      <dd><%= tee_box.yardage %></dd>
+      <!-- Display yardage end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back tee_box, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link tee_box start -->
+      <div class="col">
+        <%= link_to edit_tee_box_url(tee_box), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link tee_box end -->
+
+      <!-- Delete link tee_box start -->
+      <div class="col">
+        <%= link_to tee_box, method: :delete, data: { confirm: "Do you really want to delete this tee_box?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link tee_box end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(tee_box.updated_at) %> ago
+  </div>
+</div>
