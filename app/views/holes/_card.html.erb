@@ -39,7 +39,11 @@
 
       <dt>Course</dt>
       <!-- Display course_id start -->
-      <dd><%= hole.course_id %></dd>
+      <dd>
+        <% if @hole.course.present? %>
+          <%= link_to hole.course, hole.course %>
+        <% end %>
+      </dd>
       <!-- Display course_id end -->
 
     </dl>

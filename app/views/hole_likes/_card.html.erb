@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= hole_like.user_id %></dd>
+      <dd>
+        <% if @hole_like.user.present? %>
+          <%= link_to hole_like.user, hole_like.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Hole</dt>
       <!-- Display hole_id start -->
-      <dd><%= hole_like.hole_id %></dd>
+      <dd>
+        <% if @hole_like.hole.present? %>
+          <%= link_to hole_like.hole, hole_like.hole %>
+        <% end %>
+      </dd>
       <!-- Display hole_id end -->
 
     </dl>

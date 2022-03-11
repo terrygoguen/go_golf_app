@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Hole</dt>
       <!-- Display hole_id start -->
-      <dd><%= tee_box.hole_id %></dd>
+      <dd>
+        <% if @tee_box.hole.present? %>
+          <%= link_to tee_box.hole, tee_box.hole %>
+        <% end %>
+      </dd>
       <!-- Display hole_id end -->
 
       <dt>Color</dt>
