@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :holes
   resources :couses
   resources :hole_likes
   resources :course_likes

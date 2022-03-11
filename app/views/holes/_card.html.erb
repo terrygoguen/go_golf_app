@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Hole #<%= hole.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Yardage</dt>
+      <!-- Display yardage start -->
+      <dd><%= hole.yardage %></dd>
+      <!-- Display yardage end -->
+
+      <dt>Par</dt>
+      <!-- Display par start -->
+      <dd><%= hole.par %></dd>
+      <!-- Display par end -->
+
+      <dt>Handicap</dt>
+      <!-- Display handicap start -->
+      <dd><%= hole.handicap %></dd>
+      <!-- Display handicap end -->
+
+      <dt>Polygon map</dt>
+      <!-- Display polygon_map start -->
+      <dd><%= hole.polygon_map %></dd>
+      <!-- Display polygon_map end -->
+
+      <dt>Center of green longitude</dt>
+      <!-- Display center_of_green_longitude start -->
+      <dd><%= hole.center_of_green_longitude %></dd>
+      <!-- Display center_of_green_longitude end -->
+
+      <dt>Center of green latitude</dt>
+      <!-- Display center_of_green_latitude start -->
+      <dd><%= hole.center_of_green_latitude %></dd>
+      <!-- Display center_of_green_latitude end -->
+
+      <dt>Course</dt>
+      <!-- Display course_id start -->
+      <dd><%= hole.course_id %></dd>
+      <!-- Display course_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back hole, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link hole start -->
+      <div class="col">
+        <%= link_to edit_hole_url(hole), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link hole end -->
+
+      <!-- Delete link hole start -->
+      <div class="col">
+        <%= link_to hole, method: :delete, data: { confirm: "Do you really want to delete this hole?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link hole end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(hole.updated_at) %> ago
+  </div>
+</div>

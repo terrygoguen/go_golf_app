@@ -1,0 +1,187 @@
+<% was_validated = hole.errors.any? %>
+
+<%= form_with(model: hole, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for yardage start -->
+  <div class="form-group">
+    <% yardage_class = "form-control" %>
+    <% yardage_was_invalid = hole.errors.include?(:yardage) %>
+
+    <% if was_validated %>
+      <% if yardage_was_invalid %>
+        <% yardage_class << " is-invalid" %>
+      <% else %>
+        <% yardage_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :yardage %>
+    <!-- Input for yardage start -->
+    <%= f.number_field :yardage, class: yardage_class, placeholder: "Enter yardage" %>
+    <!-- Input for yardage end -->
+    <% if yardage_was_invalid %>
+      <% hole.errors.full_messages_for(:yardage).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for yardage end -->
+  <!-- Label and input for par start -->
+  <div class="form-group">
+    <% par_class = "form-control" %>
+    <% par_was_invalid = hole.errors.include?(:par) %>
+
+    <% if was_validated %>
+      <% if par_was_invalid %>
+        <% par_class << " is-invalid" %>
+      <% else %>
+        <% par_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :par %>
+    <!-- Input for par start -->
+    <%= f.number_field :par, class: par_class, placeholder: "Enter par" %>
+    <!-- Input for par end -->
+    <% if par_was_invalid %>
+      <% hole.errors.full_messages_for(:par).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for par end -->
+  <!-- Label and input for handicap start -->
+  <div class="form-group">
+    <% handicap_class = "form-control" %>
+    <% handicap_was_invalid = hole.errors.include?(:handicap) %>
+
+    <% if was_validated %>
+      <% if handicap_was_invalid %>
+        <% handicap_class << " is-invalid" %>
+      <% else %>
+        <% handicap_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :handicap %>
+    <!-- Input for handicap start -->
+    <%= f.number_field :handicap, class: handicap_class, placeholder: "Enter handicap" %>
+    <!-- Input for handicap end -->
+    <% if handicap_was_invalid %>
+      <% hole.errors.full_messages_for(:handicap).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for handicap end -->
+  <!-- Label and input for polygon_map start -->
+  <div class="form-group">
+    <% polygon_map_class = "form-control" %>
+    <% polygon_map_was_invalid = hole.errors.include?(:polygon_map) %>
+
+    <% if was_validated %>
+      <% if polygon_map_was_invalid %>
+        <% polygon_map_class << " is-invalid" %>
+      <% else %>
+        <% polygon_map_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :polygon_map %>
+    <!-- Input for polygon_map start -->
+    <%= f.text_field :polygon_map, class: polygon_map_class, placeholder: "Enter polygon map" %>
+    <!-- Input for polygon_map end -->
+    <% if polygon_map_was_invalid %>
+      <% hole.errors.full_messages_for(:polygon_map).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for polygon_map end -->
+  <!-- Label and input for center_of_green_longitude start -->
+  <div class="form-group">
+    <% center_of_green_longitude_class = "form-control" %>
+    <% center_of_green_longitude_was_invalid = hole.errors.include?(:center_of_green_longitude) %>
+
+    <% if was_validated %>
+      <% if center_of_green_longitude_was_invalid %>
+        <% center_of_green_longitude_class << " is-invalid" %>
+      <% else %>
+        <% center_of_green_longitude_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :center_of_green_longitude %>
+    <!-- Input for center_of_green_longitude start -->
+    <%= f.number_field :center_of_green_longitude, class: center_of_green_longitude_class, placeholder: "Enter center of green longitude" %>
+    <!-- Input for center_of_green_longitude end -->
+    <% if center_of_green_longitude_was_invalid %>
+      <% hole.errors.full_messages_for(:center_of_green_longitude).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for center_of_green_longitude end -->
+  <!-- Label and input for center_of_green_latitude start -->
+  <div class="form-group">
+    <% center_of_green_latitude_class = "form-control" %>
+    <% center_of_green_latitude_was_invalid = hole.errors.include?(:center_of_green_latitude) %>
+
+    <% if was_validated %>
+      <% if center_of_green_latitude_was_invalid %>
+        <% center_of_green_latitude_class << " is-invalid" %>
+      <% else %>
+        <% center_of_green_latitude_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :center_of_green_latitude %>
+    <!-- Input for center_of_green_latitude start -->
+    <%= f.number_field :center_of_green_latitude, class: center_of_green_latitude_class, placeholder: "Enter center of green latitude" %>
+    <!-- Input for center_of_green_latitude end -->
+    <% if center_of_green_latitude_was_invalid %>
+      <% hole.errors.full_messages_for(:center_of_green_latitude).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for center_of_green_latitude end -->
+  <!-- Label and input for course_id start -->
+  <div class="form-group">
+    <% course_class = "form-control" %>
+    <% course_was_invalid = hole.errors.include?(:course) %>
+
+    <% if was_validated %>
+      <% if course_was_invalid %>
+        <% course_class << " is-invalid" %>
+      <% else %>
+        <% course_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :course_id %>
+    <!-- Input for course_id start -->
+    <%= f.number_field :course_id, class: course_class, placeholder: "Enter course" %>
+    <!-- Input for course_id end -->
+    <% if course_was_invalid %>
+      <% hole.errors.full_messages_for(:course).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for course_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
