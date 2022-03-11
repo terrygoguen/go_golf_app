@@ -12,6 +12,9 @@ class CouseResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :holes,
+             foreign_key: :course_id
+
   # Indirect associations
 
 end

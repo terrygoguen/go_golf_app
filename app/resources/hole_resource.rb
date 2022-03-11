@@ -12,6 +12,9 @@ class HoleResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :course,
+             resource: CouseResource
+
   # Indirect associations
 
 end
