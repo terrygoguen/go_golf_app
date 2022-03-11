@@ -4,6 +4,8 @@ RSpec.describe HoleLike, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:hole) }
+
     it { should belong_to(:user) }
 
     end
