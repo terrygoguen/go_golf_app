@@ -4,6 +4,8 @@ RSpec.describe Couse, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:course_likes) }
+
     it { should have_many(:holes) }
 
     end

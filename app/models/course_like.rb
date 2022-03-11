@@ -1,6 +1,9 @@
 class CourseLike < ApplicationRecord
   # Direct associations
 
+  belongs_to :course,
+             :class_name => "Couse"
+
   belongs_to :user
 
   # Indirect associations
