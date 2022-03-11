@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Tee Boxes
+
+    <a data-toggle="collapse" href="#hole_tee_boxes_new_form">
+      Add tee box
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @hole.tee_boxes.each do |tee_box| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to tee_box, tee_box %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to tee_box, method: :delete, data: { confirm: "Do you really want to delete this tee_box" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="hole_tee_boxes_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

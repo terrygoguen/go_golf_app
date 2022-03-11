@@ -42,8 +42,14 @@ class HoleLikesController < ApplicationController
   # DELETE /hole_likes/1
   def destroy
     @hole_like.destroy
-    redirect_to hole_likes_url, notice: 'Hole like was successfully destroyed.'
+    message = "HoleLike was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to hole_likes_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -42,8 +42,14 @@ class TeeBoxesController < ApplicationController
   # DELETE /tee_boxes/1
   def destroy
     @tee_box.destroy
-    redirect_to tee_boxes_url, notice: 'Tee box was successfully destroyed.'
+    message = "TeeBox was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to tee_boxes_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

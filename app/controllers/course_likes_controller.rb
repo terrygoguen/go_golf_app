@@ -42,8 +42,14 @@ class CourseLikesController < ApplicationController
   # DELETE /course_likes/1
   def destroy
     @course_like.destroy
-    redirect_to course_likes_url, notice: 'Course like was successfully destroyed.'
+    message = "CourseLike was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to course_likes_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
