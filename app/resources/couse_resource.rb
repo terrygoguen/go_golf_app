@@ -12,6 +12,9 @@ class CouseResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :course_likes,
+             foreign_key: :course_id
+
   has_many   :holes,
              foreign_key: :course_id
 

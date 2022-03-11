@@ -7,6 +7,9 @@ class CourseLikeResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :course,
+             resource: CouseResource
+
   belongs_to :user
 
   # Indirect associations
